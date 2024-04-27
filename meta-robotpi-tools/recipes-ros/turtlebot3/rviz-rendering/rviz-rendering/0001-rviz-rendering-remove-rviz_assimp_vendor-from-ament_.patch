@@ -1,0 +1,22 @@
+From 0e8aa2ef3f7532aac666991456ee76af8b57c1dc Mon Sep 17 00:00:00 2001
+From: Weiheng Ni <weihengn@gmail.com>
+Date: Fri, 26 Apr 2024 00:29:59 -0700
+Subject: [PATCH] [rviz-rendering] remove rviz_assimp_vendor from
+ ament_target_dependencies to let cmake find the correct libz.so
+
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d7f3be705..4c1eccd93 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -124,7 +124,6 @@ target_compile_definitions(rviz_rendering PRIVATE "RVIZ_RENDERING_BUILDING_LIBRA
+ 
+ ament_target_dependencies(rviz_rendering
+   SYSTEM PUBLIC
+-  rviz_assimp_vendor
+ )
+ ament_export_dependencies(
+   rviz_assimp_vendor

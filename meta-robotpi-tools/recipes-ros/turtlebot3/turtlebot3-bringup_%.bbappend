@@ -1,0 +1,1 @@
+ROS_EXEC_DEPENDS:remove = "rviz2"
