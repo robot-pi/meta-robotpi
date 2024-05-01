@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Robot Pi Inc.
 
-require ${COREBASE}/meta/recipes-core/images/core-image-minimal.bb
+require ${COREBASE}/meta/recipes-sato/images/core-image-sato.bb
 
 SUMMARY = "Robot Pi image with core TurtleBot3 and ROS2 packages"
 DESCRIPTION = "${SUMMARY}"
