@@ -31,19 +31,25 @@ TURTLEBOT3_PACKAGES_COLCON ??= " \
     python3-colcon-python-setup-py \
 "
 
+TURTLEBOT3_PACKAGES_ROSDEP ??= " \
+    python-rosdep-data \
+    python3-rosdep \
+    python3-rosdistro \
+    python3-rospkg \
+"
+
 RDEPENDS:${PN} = " \
     ros-base \
+    tf2 \
     turtlebot3 \
     turtlebot3-msgs \
     ${TURTLEBOT3_PACKAGES_CAMERA} \
     ${TURTLEBOT3_PACKAGES_LIDAR} \
     ${TURTLEBOT3_PACKAGES_COLCON} \
-    tf2 \
-    python-rosdep-data \
+    ${TURTLEBOT3_PACKAGES_ROSDEP} \
 "
 
 # TODO: add replacement for rosserial-python in ros2
 RDEPENDS:${PN}:append:ros1-distro = " \
     rosserial-python \
 "
-
