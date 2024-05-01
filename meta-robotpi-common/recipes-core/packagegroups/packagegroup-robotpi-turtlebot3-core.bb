@@ -24,12 +24,20 @@ TURTLEBOT3_PACKAGES_CAMERA:append:rpi = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'camera-ros', '', d)} \
 "
 
+TURTLEBOT3_PACKAGES_COLCON ??= " \
+    python3-argcomplete \
+    python3-colcon-common-extensions \
+    python3-colcon-notification \
+    python3-colcon-python-setup-py \
+"
+
 RDEPENDS:${PN} = " \
     ros-base \
     turtlebot3 \
     turtlebot3-msgs \
     ${TURTLEBOT3_PACKAGES_CAMERA} \
     ${TURTLEBOT3_PACKAGES_LIDAR} \
+    ${TURTLEBOT3_PACKAGES_COLCON} \
     tf2 \
     python-rosdep-data \
 "
