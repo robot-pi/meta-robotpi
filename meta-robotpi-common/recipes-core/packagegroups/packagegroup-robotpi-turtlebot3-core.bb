@@ -13,6 +13,7 @@ inherit ros_distro_${ROS_DISTRO}
 
 TURTLEBOT3_PACKAGES_LIDAR ??= " \
     hls-lfcd-lds-driver \
+    ld08-driver \
 "
 TURTLEBOT3_PACKAGES_LIDAR:qemux86 = ""
 
