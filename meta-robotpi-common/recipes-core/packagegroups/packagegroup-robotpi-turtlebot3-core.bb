@@ -46,9 +46,13 @@ RDEPENDS:${PN} = " \
     turtlebot3-msgs \
     ${TURTLEBOT3_PACKAGES_CAMERA} \
     ${TURTLEBOT3_PACKAGES_LIDAR} \
-    ${TURTLEBOT3_PACKAGES_COLCON} \
-    ${TURTLEBOT3_PACKAGES_ROSDEP} \
 "
+
+# runtime ros build not needed
+#RDEPENDS:${PN} += " \
+#    ${TURTLEBOT3_PACKAGES_COLCON} \
+#    ${TURTLEBOT3_PACKAGES_ROSDEP} \
+#"
 
 # TODO: add replacement for rosserial-python in ros2
 RDEPENDS:${PN}:append:ros1-distro = " \
