@@ -1,1 +1,1 @@
-RDEPENDS:${PN} += "urdf-parser-plugin"
+ROS_EXEC_DEPENDS:append = "urdf-parser-plugin"
