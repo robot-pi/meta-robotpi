@@ -9,6 +9,7 @@ inherit ros_distro_${ROS_DISTRO}
 inherit ${ROS_DISTRO_TYPE}_image
 
 ROBOTPI_EXTRA_PKGS ??= " \
+    robot-setup-scripts \
     tzdata \
     systemd-analyze \
 "
