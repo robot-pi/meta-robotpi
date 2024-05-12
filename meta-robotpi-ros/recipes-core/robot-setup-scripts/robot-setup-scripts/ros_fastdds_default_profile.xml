@@ -14,6 +14,9 @@
                 <initialPeersList>
                     <locator>
                         <udpv4>
+                            <address>127.0.0.1</address>
+                        </udpv4>
+                        <udpv4>
                             <address>${ROS_REMOTE_ROBOT_IP}</address>
                         </udpv4>
                     </locator>
