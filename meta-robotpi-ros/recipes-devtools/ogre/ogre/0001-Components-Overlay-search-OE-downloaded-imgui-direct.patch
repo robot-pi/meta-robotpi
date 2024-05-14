@@ -1,0 +1,25 @@
+From 5dd8d9648801ecdbcf21112be5afa4206e9e44be Mon Sep 17 00:00:00 2001
+From: Weiheng Ni <weihengn@gmail.com>
+Date: Tue, 14 May 2024 02:21:57 -0700
+Subject: [PATCH] Components/Overlay: search OE downloaded imgui directory
+ first
+
+---
+ Components/Overlay/CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/Components/Overlay/CMakeLists.txt b/Components/Overlay/CMakeLists.txt
+index 64a2a4ed7..46a8880b4 100644
+--- a/Components/Overlay/CMakeLists.txt
++++ b/Components/Overlay/CMakeLists.txt
+@@ -20,6 +20,10 @@ file(GLOB SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
+ 
+ if(OGRE_BUILD_COMPONENT_OVERLAY_IMGUI)
+   set(IMGUI_DIR "${PROJECT_BINARY_DIR}/imgui-1.79" CACHE PATH "")
++  set(OE_IMGUI_DIR "${PROJECT_BINARY_DIR}/../imgui-1.79" CACHE PATH "")
++  if(EXISTS ${OE_IMGUI_DIR})
++    file(RENAME ${OE_IMGUI_DIR} ${IMGUI_DIR})
++  endif()
+   if(NOT EXISTS ${IMGUI_DIR})
+     message(STATUS "Downloading imgui")
+     file(DOWNLOAD
