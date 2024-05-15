@@ -1,1 +1,1 @@
-ROS_EXEC_DEPENDS:append = "urdf-parser-plugin"
+ROS_EXEC_DEPENDS:append = " urdf-parser-plugin"

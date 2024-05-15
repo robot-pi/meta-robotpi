@@ -1,1 +1,1 @@
-PACKAGECONFIG:append = " gui"
+PACKAGECONFIG:append:pn-qtbase-native = " gui"

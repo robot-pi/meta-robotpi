@@ -1,1 +1,1 @@
-PACKAGECONFIG:append = " libomp"
+PACKAGECONFIG:append:pn-clang = " libomp"
