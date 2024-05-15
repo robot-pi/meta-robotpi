@@ -8,14 +8,9 @@ DESCRIPTION = "${SUMMARY}"
 inherit ros_distro_${ROS_DISTRO}
 inherit ${ROS_DISTRO_TYPE}_image
 
-ROBOTPI_EXTRA_PKGS ??= " \
-    robot-setup-scripts \
-    tzdata \
-    systemd-analyze \
-"
-
 IMAGE_INSTALL:append = " \
-    ${ROBOTPI_EXTRA_PKGS} \
-    ros-core \
+    packagegroup-robotpi-core-buildessential \
+    packagegroup-robotpi-ros-core \
+    packagegroup-robotpi-system-setup \
     packagegroup-robotpi-turtlebot3-core \
 "

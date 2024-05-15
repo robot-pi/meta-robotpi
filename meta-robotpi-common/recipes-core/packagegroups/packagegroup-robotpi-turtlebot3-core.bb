@@ -25,34 +25,13 @@ TURTLEBOT3_PACKAGES_CAMERA:append:rpi = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'camera-ros', '', d)} \
 "
 
-TURTLEBOT3_PACKAGES_COLCON ??= " \
-    python3-argcomplete \
-    python3-colcon-common-extensions \
-    python3-colcon-notification \
-    python3-colcon-python-setup-py \
-"
-
-TURTLEBOT3_PACKAGES_ROSDEP ??= " \
-    python-rosdep-data \
-    python3-rosdep \
-    python3-rosdistro \
-    python3-rospkg \
-"
-
 RDEPENDS:${PN} = " \
-    ros-base \
-    tf2 \
+    packagegroup-robotpi-ros-core \
     turtlebot3 \
     turtlebot3-msgs \
     ${TURTLEBOT3_PACKAGES_CAMERA} \
     ${TURTLEBOT3_PACKAGES_LIDAR} \
 "
-
-# runtime ros build not needed
-#RDEPENDS:${PN} += " \
-#    ${TURTLEBOT3_PACKAGES_COLCON} \
-#    ${TURTLEBOT3_PACKAGES_ROSDEP} \
-#"
 
 # TODO: add replacement for rosserial-python in ros2
 RDEPENDS:${PN}:append:ros1-distro = " \
