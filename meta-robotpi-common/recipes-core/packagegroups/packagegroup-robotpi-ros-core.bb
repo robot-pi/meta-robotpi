@@ -13,4 +13,5 @@ RDEPENDS:${PN} = " \
     ros-core \
     demo-nodes-cpp \
     demo-nodes-py \
+    xacro \
 "
