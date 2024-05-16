@@ -11,4 +11,6 @@ inherit ros_distro_${ROS_DISTRO}
 RDEPENDS:${PN} = " \
     ros-base \
     ros-core \
+    demo-nodes-cpp \
+    demo-nodes-py \
 "

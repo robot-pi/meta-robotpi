@@ -5,8 +5,12 @@
 
 # ROS global env
 export ROS_PROFILE_DIR=/etc/profile.d/ros
-export ROS_DOMAIN_ID=30
 source "$ROS_PROFILE_DIR/setup.bash"
+
+# DDS config
+export ROS_DOMAIN_ID=30
+export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
+export FASTRTPS_DEFAULT_PROFILES_FILE="$ROS_PROFILE_DIR/fastrtps_default_profile.xml"
 
 # Colcon event handler blocklist
 export COLCON_EXTENSION_BLOCKLIST=""
