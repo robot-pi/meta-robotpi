@@ -1,0 +1,38 @@
+From 5de5ca436ed9fbb07859b3aefde3b3e55be733a8 Mon Sep 17 00:00:00 2001
+From: Weiheng Ni <weihengn@gmail.com>
+Date: Thu, 16 May 2024 21:57:41 -0700
+Subject: [PATCH] remove rviz launch dependency
+
+---
+ launch/navigation2.launch.py | 13 -------------
+ 1 file changed, 13 deletions(-)
+
+diff --git a/launch/navigation2.launch.py b/launch/navigation2.launch.py
+index 72d1049..4ba30a9 100644
+--- a/launch/navigation2.launch.py
++++ b/launch/navigation2.launch.py
+@@ -46,11 +46,6 @@ def generate_launch_description():
+ 
+     nav2_launch_file_dir = os.path.join(get_package_share_directory('nav2_bringup'), 'launch')
+ 
+-    rviz_config_dir = os.path.join(
+-        get_package_share_directory('nav2_bringup'),
+-        'rviz',
+-        'nav2_default_view.rviz')
+-
+     return LaunchDescription([
+         DeclareLaunchArgument(
+             'map',
+@@ -74,12 +69,4 @@ def generate_launch_description():
+                 'use_sim_time': use_sim_time,
+                 'params_file': param_dir}.items(),
+         ),
+-
+-        Node(
+-            package='rviz2',
+-            executable='rviz2',
+-            name='rviz2',
+-            arguments=['-d', rviz_config_dir],
+-            parameters=[{'use_sim_time': use_sim_time}],
+-            output='screen'),
+     ])

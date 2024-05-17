@@ -1,0 +1,36 @@
+From a912f0e5c6124fcfe7191e2cd959c97781ba51ff Mon Sep 17 00:00:00 2001
+From: Weiheng Ni <weihengn@gmail.com>
+Date: Thu, 16 May 2024 21:58:00 -0700
+Subject: [PATCH] remove rviz launch dependency
+
+---
+ launch/cartographer.launch.py | 11 -----------
+ 1 file changed, 11 deletions(-)
+
+diff --git a/launch/cartographer.launch.py b/launch/cartographer.launch.py
+index 6318b61..45e1155 100644
+--- a/launch/cartographer.launch.py
++++ b/launch/cartographer.launch.py
+@@ -36,9 +36,6 @@ def generate_launch_description():
+     resolution = LaunchConfiguration('resolution', default='0.05')
+     publish_period_sec = LaunchConfiguration('publish_period_sec', default='1.0')
+ 
+-    rviz_config_dir = os.path.join(get_package_share_directory('turtlebot3_cartographer'),
+-                                   'rviz', 'tb3_cartographer.rviz')
+-
+     return LaunchDescription([
+         DeclareLaunchArgument(
+             'cartographer_config_dir',
+@@ -77,12 +74,4 @@ def generate_launch_description():
+             launch_arguments={'use_sim_time': use_sim_time, 'resolution': resolution,
+                               'publish_period_sec': publish_period_sec}.items(),
+         ),
+-
+-        Node(
+-            package='rviz2',
+-            executable='rviz2',
+-            name='rviz2',
+-            arguments=['-d', rviz_config_dir],
+-            parameters=[{'use_sim_time': use_sim_time}],
+-            output='screen'),
+     ])
