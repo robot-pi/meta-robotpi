@@ -11,6 +11,7 @@ inherit ros_distro_${ROS_DISTRO}
 RDEPENDS:${PN} = " \
     ros-base \
     ros-core \
+    ros2-control \
     demo-nodes-cpp \
     demo-nodes-py \
     xacro \
