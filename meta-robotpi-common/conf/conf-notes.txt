@@ -4,6 +4,7 @@
 You can now run 'bitbake <target>'
 
 Common targets are:
+    robotpi-image-turtlebot3-core
     core-image-minimal
     core-image-full-cmdline
     core-image-sato
@@ -11,7 +12,7 @@ Common targets are:
     meta-toolchain
     meta-ide-support
 
-You can also run generated qemu images with a command like 'runqemu qemux86'
+You can also run generated qemu images with a command like 'runqemu qemux86-64 [nographic]'
 
 Other commonly useful commands are:
  - 'devtool' and 'recipetool' handle common recipe tasks

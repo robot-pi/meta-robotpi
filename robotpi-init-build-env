@@ -1,0 +1,48 @@
+#!/bin/sh
+
+# RobotPi OS Build Environment Setup Script
+#
+# Copyright (C) 2024 Robot Pi Inc
+#
+
+if [ -n "$BASH_SOURCE" ]; then
+    THIS_SCRIPT=$BASH_SOURCE
+elif [ -n "$ZSH_NAME" ]; then
+    THIS_SCRIPT=$0
+else
+    THIS_SCRIPT="$(pwd)/robotpi-init-build-env"
+    if [ ! -e "$THIS_SCRIPT" ]; then
+        echo "Error: $THIS_SCRIPT doesn't exist!" >&2
+        echo "Please run this script in robotpi-init-build-env's directory." >&2
+        exit 1
+    fi
+fi
+
+if [ -z "$ZSH_NAME" ] && [ "$0" = "$THIS_SCRIPT" ]; then
+    echo "Error: This script needs to be sourced. Please run as '. $THIS_SCRIPT'" >&2
+    exit 1
+fi
+
+if [ -z "$ROBOTPI_ROOT" ]; then
+    ROBOTPI_ROOT=$(dirname "$THIS_SCRIPT")
+    ROBOTPI_ROOT=$(readlink -f "$ROBOTPI_ROOT")
+fi
+unset THIS_SCRIPT
+
+# Copy templateconf.cfg.sample from meta-robotpi-common layer
+# Point template directory to meta-robotpi-common/conf
+ROBOTPI_TEMPLATE_CONF_DIR="$ROBOTPI_ROOT/meta-robotpi-common/conf"
+ROBOTPI_BUILD_CONF_DIR="$ROBOTPI_ROOT/../../build/conf"
+if [ -f "$ROBOTPI_TEMPLATE_CONF_DIR/templateconf.cfg.sample" ]; then
+    mkdir -p "$ROBOTPI_BUILD_CONF_DIR"
+    cp "$ROBOTPI_TEMPLATE_CONF_DIR/templateconf.cfg.sample" "$ROBOTPI_BUILD_CONF_DIR/templateconf.cfg"
+fi
+
+# Source openembedded environment variables
+OE_INIT_BUILD_ENV_SCRIPT="$ROBOTPI_ROOT/../openembedded-core/oe-init-build-env"
+source $OE_INIT_BUILD_ENV_SCRIPT
+
+# Change directory back to top level
+if [[ "$(pwd)" == *"/build" ]]; then
+    cd ..
+fi
