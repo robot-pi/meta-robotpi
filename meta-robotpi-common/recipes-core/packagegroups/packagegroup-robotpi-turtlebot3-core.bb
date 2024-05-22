@@ -20,6 +20,7 @@ TURTLEBOT3_PACKAGES_LIDAR:qemux86 = ""
 TURTLEBOT3_PACKAGES_CAMERA ??= " \
     camera-info-manager \
     compressed-image-transport \
+    v4l2-camera \
 "
 TURTLEBOT3_PACKAGES_CAMERA:append:rpi = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'camera-ros', '', d)} \
