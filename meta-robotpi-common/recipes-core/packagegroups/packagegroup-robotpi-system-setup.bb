@@ -9,7 +9,6 @@ inherit packagegroup
 inherit ros_distro_${ROS_DISTRO}
 
 RDEPENDS:${PN} = " \
-    e2fsprogs-resize2fs \
     robot-setup-scripts \
     tzdata \
 "

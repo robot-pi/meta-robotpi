@@ -9,7 +9,7 @@ inherit ros_distro_${ROS_DISTRO}
 inherit ${ROS_DISTRO_TYPE}_image
 
 IMAGE_INSTALL:append = " \
-    packagegroup-robotpi-core-buildessential \
+    packagegroup-robotpi-dev-tools \
     packagegroup-robotpi-ros-core \
     packagegroup-robotpi-system-setup \
     packagegroup-robotpi-turtlebot3-core \

@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Robot Pi Inc.
 
-SUMMARY = "Core packages of Robot Pi native build tools"
+SUMMARY = "Core packages of Robot Pi native dev tools"
 
 # Need this because the recipe uses MACHINE overrides.
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -12,6 +12,8 @@ RDEPENDS:${PN} = " \
     ament-cmake \
     cmake \
     clang \
+    e2fsprogs-resize2fs \
+    parted \
     packagegroup-core-buildessential \
     python-rosdep-data \
     python3-rosdep \
