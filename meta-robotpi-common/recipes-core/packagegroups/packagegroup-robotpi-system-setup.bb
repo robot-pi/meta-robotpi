@@ -9,6 +9,7 @@ inherit packagegroup
 inherit ros_distro_${ROS_DISTRO}
 
 RDEPENDS:${PN} = " \
+    connman-wifi-config \
     robot-setup-scripts \
     tzdata \
 "
