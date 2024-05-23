@@ -8,8 +8,12 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 inherit ros_distro_${ROS_DISTRO}
 
-RDEPENDS:${PN} = " \
-    connman-wifi-config \
+SYSTEM_SETUP_PKGS ??= " \
     robot-setup-scripts \
+    connman-autoconfig \
+"
+
+RDEPENDS:${PN} = " \
+    ${SYSTEM_SETUP_PKGS} \
     tzdata \
 "
