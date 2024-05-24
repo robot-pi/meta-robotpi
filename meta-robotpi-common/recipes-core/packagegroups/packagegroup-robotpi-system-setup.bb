@@ -13,6 +13,10 @@ SYSTEM_SETUP_PKGS ??= " \
     connman-autoconfig \
 "
 
+SYSTEM_SETUP_PKGS:append:rpi = " \
+    usb-ether-autoconfig \
+"
+
 RDEPENDS:${PN} = " \
     ${SYSTEM_SETUP_PKGS} \
     tzdata \

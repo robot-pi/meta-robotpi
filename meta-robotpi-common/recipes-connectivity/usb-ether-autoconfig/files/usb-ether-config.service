@@ -1,0 +1,12 @@
+[Unit]
+Description=Assign IP to Ethernet over USB interface
+After=network.target
+Requires=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/profile.d/system_setup/usb_ether_config.sh usb0 169.254.1.100/16 8
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target
