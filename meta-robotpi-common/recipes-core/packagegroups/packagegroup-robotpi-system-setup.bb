@@ -9,6 +9,7 @@ inherit packagegroup
 inherit ros_distro_${ROS_DISTRO}
 
 SYSTEM_SETUP_PKGS ??= " \
+    firstboot-runner \
     robot-setup-scripts \
     connman-autoconfig \
 "
