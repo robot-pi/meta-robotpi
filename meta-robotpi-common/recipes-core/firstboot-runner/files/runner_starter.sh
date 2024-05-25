@@ -38,10 +38,14 @@ echo "Mark completion and mask fristboot-runner service"
 touch $FIRSTBOOT_RUNNER_DONE_FILE
 systemctl mask $FIRSTBOOT_RUNNER_SERVICE
 
-if [ "${REBOOT_TIMEOUT}" = "REBOOT_TIMEOUT_PLACEHOLDER" ]; then
-    echo "Finished firstboot runner. Please reboot system to take effect"
-else
+# reboot system automatically if we receive a positive integer timeout (cap by 10)
+if [[ "$REBOOT_TIMEOUT" =~ ^[1-9][0-9]*$ ]]; then
+    if [ "$REBOOT_TIMEOUT" -gt 10 ]; then
+        REBOOT_TIMEOUT=10
+    fi
     echo "Finished firstboot runner. Rebooting system in ${REBOOT_TIMEOUT}..."
     sleep $REBOOT_TIMEOUT
     reboot
+else
+    echo "Finished firstboot runner. Please reboot system to take effect"
 fi

@@ -12,8 +12,6 @@ RDEPENDS:${PN} = " \
     ament-cmake \
     cmake \
     clang \
-    e2fsprogs-resize2fs \
-    parted \
     packagegroup-core-buildessential \
     python-rosdep-data \
     python3-rosdep \

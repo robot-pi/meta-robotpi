@@ -8,6 +8,11 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 inherit ros_distro_${ROS_DISTRO}
 
+SYSTEM_TOOL_PKGS ??= " \
+    e2fsprogs-resize2fs \
+    parted \
+"
+
 SYSTEM_SETUP_PKGS ??= " \
     firstboot-runner \
     robot-setup-scripts \
@@ -20,5 +25,6 @@ SYSTEM_SETUP_PKGS:append:rpi = " \
 
 RDEPENDS:${PN} = " \
     ${SYSTEM_SETUP_PKGS} \
+    ${SYSTEM_TOOL_PKGS} \
     tzdata \
 "
