@@ -13,6 +13,12 @@ S = "${WORKDIR}"
 DEPENDS += "connman"
 RDEPENDS:${PN} += "connman"
 
+# Default connman configuration
+CONNMAN_WIFI_ENABLE ??= "true"
+CONNMAN_BT_ENABLE ??= "false"
+CONNMAN_WIFI_NAME ??= "WIFI_NAME_DEFAULT"
+CONNMAN_WIFI_PASSPHRASE ??= "WIFI_PASSPHRASE_DEFAULT"
+
 do_install () {
     # install connman default config/settings
     connman_setting_dir=/var/lib/connman

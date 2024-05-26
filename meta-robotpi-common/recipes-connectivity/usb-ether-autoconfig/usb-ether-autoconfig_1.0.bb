@@ -24,7 +24,7 @@ do_install() {
 # Add to systemd service
 SYSTEMD_SERVICE:${PN} = "usb-ether-config.service"
 # Manage service per override (disabled by default)
-USB_ETHER_ENABLE_SERVICE ?= "disable"
+USB_ETHER_ENABLE_SERVICE ??= "mask"
 USB_ETHER_ENABLE_SERVICE:qemuall ??= "mask"
 USB_ETHER_ENABLE_SERVICE:rpi ??= "enable"
 SYSTEMD_AUTO_ENABLE = "${USB_ETHER_ENABLE_SERVICE}"

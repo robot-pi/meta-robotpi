@@ -1,1 +1,1 @@
-ENABLE_DWC2_OTG ??= "1"
+ENABLE_DWC2_OTG = "1"

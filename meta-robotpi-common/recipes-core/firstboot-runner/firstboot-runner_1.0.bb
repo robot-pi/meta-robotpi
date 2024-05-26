@@ -17,8 +17,8 @@ S = "${WORKDIR}"
 
 inherit systemd
 
-RUNNER_REBOOT_TIMEOUT = "5"
-RUNNER_REBOOT_TIMEOUT:qemuall = ""
+RUNNER_REBOOT_TIMEOUT ??= "5"
+RUNNER_REBOOT_TIMEOUT:qemuall ??= ""
 
 do_install() {
     # Install all runner scripts to /etc/profile.d/system_setup/firstboot_runner
