@@ -14,5 +14,6 @@ RDEPENDS:${PN} = " \
     ros2-control \
     demo-nodes-cpp \
     demo-nodes-py \
+    moveit \
     xacro \
 "
