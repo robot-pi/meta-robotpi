@@ -4,7 +4,8 @@
 You can now run 'bitbake <target>'
 
 Common targets are:
-    robotpi-image-turtlebot3-core
+    robotpi-image-rb5-release
+    robotpi-image-rb5-debug
     core-image-minimal
     core-image-full-cmdline
     core-image-sato
