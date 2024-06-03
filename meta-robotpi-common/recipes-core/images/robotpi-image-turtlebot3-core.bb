@@ -13,4 +13,5 @@ IMAGE_INSTALL:append = " \
     packagegroup-robotpi-ros-core \
     packagegroup-robotpi-system-setup \
     packagegroup-robotpi-turtlebot3-core \
+    packagegroup-robotpi-ui-core \
 "
