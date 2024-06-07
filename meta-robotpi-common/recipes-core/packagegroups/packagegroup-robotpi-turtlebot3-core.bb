@@ -11,8 +11,8 @@ inherit ros_distro_${ROS_DISTRO}
 # Include ROS turtlebot3 related packages
 # Refer to https://emanual.robotis.com/docs/en/platform/turtlebot3/sbc_setup/
 
-TURTLEBOT3_PACKAGES_LIDAR ??= ""
-TURTLEBOT3_PACKAGES_LIDAR:append:rpi = " \
+TURTLEBOT3_PACKAGES_LIDAR ??= " \
+    rplidar-ros \
     ld08-driver \
 "
 
@@ -21,10 +21,6 @@ TURTLEBOT3_PACKAGES_CAMERA ??= " \
     compressed-image-transport \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'v4l2-camera', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'camera-ros', '', d)} \
-"
-TURTLEBOT3_PACKAGES_CAMERA:remove:qemuall = " \
-    v4l2-camera \
-    camera-ros \
 "
 
 RDEPENDS:${PN} = " \
