@@ -6,10 +6,12 @@ LIC_FILES_CHKSUM = ""
 SRC_URI = " \
     file://firstboot-runner.service \
     file://runner_starter.sh \
+    file://config_ros_env.sh \
     file://demo_runner.sh \
 "
 
 RUNNER_SCRIPT_LIST = " \
+    config_ros_env.sh \
     demo_runner.sh \
 "
 

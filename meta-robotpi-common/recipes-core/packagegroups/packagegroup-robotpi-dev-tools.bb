@@ -22,4 +22,5 @@ RDEPENDS:${PN} = " \
     python3-colcon-notification \
     python3-colcon-python-setup-py \
     systemd-analyze \
+    vim \
 "
