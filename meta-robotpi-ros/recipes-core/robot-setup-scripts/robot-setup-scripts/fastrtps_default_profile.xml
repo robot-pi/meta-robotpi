@@ -9,9 +9,12 @@
                 <initialPeersList>
                     <locator>
                         <udpv4>
-                            <!-- On robot machine, use this localhost ip -->
-                            <!-- On dev machine, replace with remote robot ip -->
                             <address>127.0.0.1</address>
+                        </udpv4>
+                    </locator>
+                    <locator>
+                        <udpv4>
+                            <address>192.168.1.98</address>
                         </udpv4>
                     </locator>
                 </initialPeersList>
