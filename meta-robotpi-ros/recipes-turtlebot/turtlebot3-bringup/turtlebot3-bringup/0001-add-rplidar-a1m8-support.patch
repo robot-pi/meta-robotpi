@@ -1,0 +1,39 @@
+From f3ad822fee907714cb2ab070fe794c314a5ffed1 Mon Sep 17 00:00:00 2001
+From: Weiheng Ni <weihengn@gmail.com>
+Date: Sat, 8 Jun 2024 18:28:28 -0700
+Subject: [PATCH] add rplidar a1m8 support
+
+---
+ launch/robot.launch.py   | 5 +++++
+ script/create_udev_rules | 2 +-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/launch/robot.launch.py b/launch/robot.launch.py
+index 6325098..12b09f3 100644
+--- a/launch/robot.launch.py
++++ b/launch/robot.launch.py
+@@ -51,6 +51,11 @@ def generate_launch_description():
+             'lidar_pkg_dir',
+             default=os.path.join(get_package_share_directory('ld08_driver'), 'launch'))
+         LDS_LAUNCH_FILE = '/ld08.launch.py'
++    elif LDS_MODEL == 'RPLIDAR-A1M8':
++        lidar_pkg_dir = LaunchConfiguration(
++            'lidar_pkg_dir',
++            default=os.path.join(get_package_share_directory('rplidar_ros'), 'launch'))
++        LDS_LAUNCH_FILE = '/rplidar_a1_launch.py'
+     else:
+         lidar_pkg_dir = LaunchConfiguration(
+             'lidar_pkg_dir',
+diff --git a/script/create_udev_rules b/script/create_udev_rules
+index 3408de2..3ffff2a 100644
+--- a/script/create_udev_rules
++++ b/script/create_udev_rules
+@@ -5,7 +5,7 @@ echo "This script copies a udev rule to /etc to facilitate bringing"
+ echo "up the turtlebot3 usb connection."
+ echo ""
+ 
+-sudo cp `sudo cp `ros2 pkg prefix turtlebot3_bringup`/share/turtlebot3_bringup/script/99-turtlebot3-cdc.rules /etc/udev/rules.d/
++sudo cp $(ros2 pkg prefix turtlebot3_bringup)/share/turtlebot3_bringup/script/99-turtlebot3-cdc.rules /etc/udev/rules.d/
+ 
+ echo ""
+ echo "Reload rules"

@@ -19,5 +19,5 @@ COLCON_EXTENSION_BLOCKLIST+="colcon_core.event_handler.terminal_title:"
 COLCON_EXTENSION_BLOCKLIST+="colcon_core.event_handler.status"
 
 # TURTLEBOT env
-export LDS_MODEL=LDS-02
+export LDS_MODEL=RPLIDAR-A1M8
 export TURTLEBOT3_MODEL=waffle_pi
