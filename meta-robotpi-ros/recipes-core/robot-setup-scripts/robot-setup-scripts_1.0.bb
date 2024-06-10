@@ -5,6 +5,7 @@ LIC_FILES_CHKSUM = ""
 
 SRC_URI = "file://ros_env_setup.sh \
            file://fastrtps_default_profile.xml \
+           file://tb3_default.rviz \
 "
 
 S = "${WORKDIR}"
@@ -16,6 +17,8 @@ do_install () {
 
     install -m 0755 ${WORKDIR}/ros_env_setup.sh ${D}${ros_profile_dir}
     install -m 0644 ${WORKDIR}/fastrtps_default_profile.xml ${D}${ros_profile_dir}
+    install -m 0644 ${WORKDIR}/tb3_default.rviz ${D}${ros_profile_dir}
 
+    aaa
     # other scriot location starts here
 }
