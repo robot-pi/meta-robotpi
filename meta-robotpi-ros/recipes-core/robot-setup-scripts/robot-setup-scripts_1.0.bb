@@ -19,6 +19,5 @@ do_install () {
     install -m 0644 ${WORKDIR}/fastrtps_default_profile.xml ${D}${ros_profile_dir}
     install -m 0644 ${WORKDIR}/tb3_default.rviz ${D}${ros_profile_dir}
 
-    aaa
     # other scriot location starts here
 }
