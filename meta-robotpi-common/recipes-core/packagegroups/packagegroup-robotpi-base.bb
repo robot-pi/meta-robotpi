@@ -1,4 +1,6 @@
-SUMMARY = "Organize packages to avoid duplication across all images"
+# Copyright (c) 2024 Robot Pi Inc.
+
+SUMMARY = "Robot Pi base packages for all images"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -10,16 +12,7 @@ inherit packagegroup
 # such BSP layers with meta-rpb.
 OPTEE_PACKAGES ?= "optee-test optee-client"
 
-ROBOTPI_SYSTEM_SETUP_PKGS ??= " \
-"
-ROBOTPI_SYSTEM_SETUP_PKGS:append:rpi = " \
-    firstboot-runner \
-    usb-ether-autoconfig \
-"
-
-# contains basic dependencies, that can work without graphics/display
-RDEPENDS:${PN} = " \
-    ${ROBOTPI_SYSTEM_SETUP_PKGS} \
+ROBOTPI_PACKAGES_SYS_BASE = " \
     96boards-tools \
     alsa-utils-alsaucm \
     alsa-utils-amixer \
@@ -49,4 +42,17 @@ RDEPENDS:${PN} = " \
     strace \
     tzdata \
     v4l-utils \
-    "
+"
+
+ROBOTPI_PACKAGES_SYS_CONFIG = " \
+"
+ROBOTPI_PACKAGES_SYS_CONFIG:append:rpi = " \
+    firstboot-runner \
+    usb-ether-autoconfig \
+"
+
+# contains basic dependencies, that can work without graphics/display
+RDEPENDS:${PN} = " \
+    ${ROBOTPI_PACKAGES_SYS_BASE} \
+    ${ROBOTPI_PACKAGES_SYS_CONFIG} \
+"

@@ -1,4 +1,4 @@
-SUMMARY = "Robot-Pi minimal image"
+SUMMARY = "Robot Pi minimal image"
 
 IMAGE_FEATURES += "splash enable-adbd"
 

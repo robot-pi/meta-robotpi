@@ -1,6 +1,6 @@
 require robotpi-minimal-image.bb
 
-SUMMARY = "Robot Pi Basic X11 graphics image"
+SUMMARY = "Robot Pi release image with X11 graphics"
 
 IMAGE_FEATURES += "package-management ssh-server-openssh hwcodecs x11"
 
@@ -18,7 +18,11 @@ CORE_IMAGE_BASE_INSTALL += " \
 "
 
 EXTRA_USERS_PARAMS += "\
+usermod -a -G adm robotpi; \
+usermod -a -G cdrom robotpi; \
+usermod -a -G plugdev robotpi; \
 usermod -a -G video robotpi; \
+usermod -a -G voice robotpi; \
 "
 
 # docker pulls runc/containerd, which in turn recommend lxc unecessarily

@@ -1,6 +1,6 @@
 # Copyright (c) 2024 Robot Pi Inc.
 
-SUMMARY = "ROS core packages on Robot Pi OS"
+SUMMARY = "Robot Pi packages for ROS functionalities"
 
 # Need this because the recipe uses MACHINE overrides.
 PACKAGE_ARCH = "${MACHINE_ARCH}"
@@ -9,12 +9,12 @@ inherit packagegroup
 inherit ros_distro_${ROS_DISTRO}
 
 
-TURTLEBOT3_PACKAGES_LIDAR ??= " \
+TURTLEBOT3_PACKAGES_LIDAR = " \
     rplidar-ros \
     ld08-driver \
 "
 
-TURTLEBOT3_PACKAGES_CAMERA ??= " \
+TURTLEBOT3_PACKAGES_CAMERA = " \
     camera-info-manager \
     compressed-image-transport \
     ${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'v4l2-camera', '', d)} \

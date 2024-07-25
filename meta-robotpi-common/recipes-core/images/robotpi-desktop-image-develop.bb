@@ -1,6 +1,6 @@
-require robotpi-desktop-image-release.bb
+require robotpi-desktop-image-debug.bb
 
-SUMMARY = "Robot Pi debug image"
+SUMMARY = "Robot Pi development image"
 
 # The EXTRA_IMAGE_FEATURES variable allows extra packages to be added to the generated
 # images. Some of these options are added to certain image types automatically. The
@@ -23,8 +23,8 @@ SUMMARY = "Robot Pi debug image"
 # There are other application targets that can be used here too, see
 # meta/classes/image.bbclass and meta/classes/core-image.bbclass for more details.
 # We default to enabling the debugging tweaks.
-EXTRA_IMAGE_FEATURES += "tools-debug debug-tweaks"
+EXTRA_IMAGE_FEATURES += " ptest-pkgs tools-sdk"
 
 CORE_IMAGE_BASE_INSTALL += " \
-    packagegroup-robotpi-debug \
+    packagegroup-robotpi-develop \
     "

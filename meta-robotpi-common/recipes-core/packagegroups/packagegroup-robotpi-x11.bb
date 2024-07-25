@@ -1,4 +1,6 @@
-SUMMARY = "Organize packages to avoid duplication across all images (with X11)"
+# Copyright (c) 2024 Robot Pi Inc.
+
+SUMMARY = "Robot Pi X11 packages for all images"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
@@ -7,7 +9,7 @@ inherit packagegroup features_check
 REQUIRED_DISTRO_FEATURES = "x11"
 
 # Apps that can be used in X11 Desktop
-ROBOTPI_X11_APPS_PKGS ??= " \
+ROBOTPI_PACKAGES_X11_APPS = " \
     96boards-artwork \ 
     feh-autostart \
     ffmpeg \
@@ -27,7 +29,7 @@ ROBOTPI_X11_APPS_PKGS ??= " \
 "
 
 # Additional utils that can be used in X11 Desktop
-ROBOTPI_X11_UTILS_PKGS ??= " \
+ROBOTPI_PACKAGES_X11_UTILS = " \
     iceauth \
     sessreg \
     setxkbmap \
@@ -45,6 +47,6 @@ ROBOTPI_X11_UTILS_PKGS ??= " \
 "
 
 RDEPENDS:${PN} = " \
-    ${ROBOTPI_X11_APPS_PKGS} \
-    ${ROBOTPI_X11_UTILS_PKGS} \
+    ${ROBOTPI_PACKAGES_X11_APPS} \
+    ${ROBOTPI_PACKAGES_X11_UTILS} \
 "
