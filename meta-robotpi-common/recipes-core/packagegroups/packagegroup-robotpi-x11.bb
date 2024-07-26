@@ -8,8 +8,14 @@ inherit packagegroup features_check
 
 REQUIRED_DISTRO_FEATURES = "x11"
 
+# Web app in X11 Desktop
+ROBOTPI_PACKAGES_X11_WEB = " \
+    chromium-x11 \
+"
+
 # Apps that can be used in X11 Desktop
 ROBOTPI_PACKAGES_X11_APPS = " \
+    ${ROBOTPI_PACKAGES_X11_WEB} \
     96boards-artwork \ 
     feh-autostart \
     ffmpeg \
